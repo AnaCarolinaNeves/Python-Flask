@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Faça a sua avaliação</title>
+</head>
+
+<body>
+    <div class="container">
+        <img src="../static/logo.png" alt="Lexus" class="logo">
+        {% if mensagem %}
+        <p class="message">{{ mensagem | safe }}</p>
+        {% endif %}
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <h3>Nome do cliente</h3>
+                <input type="text" name="cliente" placeholder="Nome do dono do veículo" />
+            </div>
+
+            <div class="form-group">
+                <h3>Vendedor</h3>
+                <select name="vendedor">
+                    <option value="">Selecione o vendedor</option>
+                    <option value="Ana">Ana</option>
+                    <option value="Carolina">Carolina</option>
+                    <option value="Iris">Iris</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <h3>Faça a avaliação do vendedor</h3>
+                <input type="radio" name="avaliacao" value="1" /> 1
+                <input type="radio" name="avaliacao" value="2" /> 2
+                <input type="radio" name="avaliacao" value="3" /> 3
+                <input type="radio" name="avaliacao" value="4" /> 4
+                <input type="radio" name="avaliacao" value="5" checked /> 5
+            </div>
+
+            <div class="form-group">
+                <h3>Comentários sobre a sua experiência</h3>
+                <textarea name="comentarios" id="" cols="30" rows="10"
+                    placeholder="Diga o que gostou e/ou não gostou"></textarea>
+            </div>
+            <input type="submit" value="Enviar" class="btn" />
+        </form>
+    </div>
+</body>
+
+</html>
